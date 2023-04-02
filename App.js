@@ -9,15 +9,16 @@ const cell8=document.querySelector("#cell8")
 const cell9=document.querySelector("#cell9")
 const player=document.querySelector('#player')
 let counter=1;
-if(counter %2==0) player.innerHTML="Player 2 turn"
-else player.innerHTML="Player 1 turn"
+
 function handleClick(e){
+    console.log(counter)
     if(e.target.innerHTML!==""){
         alert("This cell is taken!!! TRY ANOTHER")
     }
     
     else if(counter % 2===0){
         e.target.innerHTML="O"
+        player.innerHTML="Player 1 turn"
         
         
         if(checkWin()) {
@@ -38,6 +39,7 @@ function handleClick(e){
     }
     else{
          e.target.innerHTML="X"
+         player.innerHTML="Player 2 turn"
          if(checkWin()){ 
             alert("Player 1 won")
             cell1.innerHTML=""
@@ -53,7 +55,19 @@ function handleClick(e){
         }
          else counter=counter+1
         }
-    if(counter==9) alert("GAME DRAW!!! Reload")
+    if(counter==10 && !checkWin()) {
+        alert("GAME DRAW!!! Reload")
+        cell1.innerHTML=""
+            cell2.innerHTML=""
+            cell3.innerHTML=""
+            cell4.innerHTML=""
+            cell5.innerHTML=""
+            cell6.innerHTML=""
+            cell7.innerHTML=""
+            cell8.innerHTML=""
+            cell9.innerHTML=""
+            counter=1;
+    }
 
 }
 function checkWin(){
