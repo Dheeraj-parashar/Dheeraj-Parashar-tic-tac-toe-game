@@ -66,6 +66,7 @@ function handleClick(e){
             cell7.innerHTML=""
             cell8.innerHTML=""
             cell9.innerHTML=""
+            player.innerHTML="Player 1 turn"
             counter=1;
     }
 
